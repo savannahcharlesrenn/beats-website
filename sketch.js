@@ -22,27 +22,30 @@ function mousePressed() {
     }
 }
 
-
-
 function draw() {
+  // Soft cream background
+  background(245, 239, 225);
 
-    // Soft cream background
-    background(245, 239, 225);
+  // Get the music volume
+  let rms = analyzer.getLevel();
 
-    // Get the music volume
-    let rms = analyzer.getLevel();
+  // Create gentle continuous movement
+  let movement = sin(frameCount * 0.035) * 15;
 
-    // Make the circle grow with the music
-    let circleSize = map(rms, 0, 0.25, 50, 250, true);
+  // Make the circle react to the music
+  let circleSize = map(rms, 0, 0.25, 100, 280, true);
 
-    // Main circle
-    fill(220, 130, 160);
-    noStroke();
-    ellipse(width / 2, height / 2, circleSize, circleSize);
+  // Combine music reaction and gentle movement
+  circleSize = circleSize + movement;
 
-    // Smaller circle inside
-    fill(255, 190, 130);
-    ellipse(width / 2, height / 2, circleSize * 0.45, circleSize * 0.45);
+  // Main circle
+  fill(220, 130, 160);
+  noStroke();
+  ellipse(width / 2, height / 2, circleSize, circleSize);
+
+  // Smaller circle inside
+  fill(255, 190, 130);
+  ellipse(width / 2, height / 2, circleSize * 0.45, circleSize * 0.45);
 }
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
