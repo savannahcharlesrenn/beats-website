@@ -27,7 +27,7 @@ function mousePressed() {
 function draw() {
 
     // Soft cream background
-    background(250, 235, 230);
+    background(245, 239, 225);
 
     // Get the music volume
     let rms = analyzer.getLevel();
