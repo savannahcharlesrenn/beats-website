@@ -22,7 +22,11 @@ function mousePressed() {
     }
 }
 
+
 function draw() {
+
+    // Clear the canvas before drawing again
+    background(255);
 
     // Get the average amplitude
     let rms = analyzer.getLevel();
@@ -30,6 +34,6 @@ function draw() {
     fill(127);
     stroke(0);
 
-    // Draw an ellipse with size based on volume
-    ellipse(width / 2, height / 2, 10 + rms * 200, 10 + rms * 200);
+    // Draw a circle that changes size with the music
+    ellipse(width / 2, height / 2, 10 + rms * 500, 10 + rms * 500);
 }
