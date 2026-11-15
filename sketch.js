@@ -6,7 +6,7 @@ function preload() {
 }
 
 function setup() {
-    let myCanvas = createCanvas(600, 400);
+    let myCanvas = createCanvas(windowWidth, windowHeight);
     myCanvas.parent('myContainer');
 
     // Create a new Amplitude analyzer
@@ -43,4 +43,7 @@ function draw() {
     // Smaller circle inside
     fill(255, 190, 130);
     ellipse(width / 2, height / 2, circleSize * 0.45, circleSize * 0.45);
+}
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
