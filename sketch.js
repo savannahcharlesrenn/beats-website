@@ -23,17 +23,24 @@ function mousePressed() {
 }
 
 
+
 function draw() {
 
-    // Clear the canvas before drawing again
-    background(255);
+    // Soft cream background
+    background(250, 235, 230);
 
-    // Get the average amplitude
+    // Get the music volume
     let rms = analyzer.getLevel();
 
-    fill(127);
-    stroke(0);
+    // Make the circle grow with the music
+    let circleSize = map(rms, 0, 0.25, 50, 250, true);
 
-    // Draw a circle that changes size with the music
-    ellipse(width / 2, height / 2, 10 + rms * 500, 10 + rms * 500);
+    // Main circle
+    fill(220, 130, 160);
+    noStroke();
+    ellipse(width / 2, height / 2, circleSize, circleSize);
+
+    // Smaller circle inside
+    fill(255, 190, 130);
+    ellipse(width / 2, height / 2, circleSize * 0.45, circleSize * 0.45);
 }
